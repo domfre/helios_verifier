@@ -1,5 +1,5 @@
 import base64
-from .VoteVerifier import verify_vote
+from VoteVerifier import verify_vote
 
 
 def verify_ballot_audit(vote_with_plaintexts, election, vote_fingerprint):

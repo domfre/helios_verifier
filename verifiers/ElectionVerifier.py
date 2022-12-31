@@ -1,6 +1,6 @@
 import hashlib
 import base64
-from .VoteVerifier import verify_vote
+from VoteVerifier import verify_vote
 
 
 def verify_partial_decryption_proof(ciphertext, decryption_factor, proof, public_key):
