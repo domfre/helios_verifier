@@ -15,7 +15,7 @@ from helios_verifier.verifiers.ElectionVerifier import retally_election
 
 
 def verify(election_uuid):
-    # retrieve election, deserialize json, base-64 encode public key
+    # deserialize jsons
     election = Election.from_dict(requests.get(ELECTION_BASE_URL + election_uuid).json())
 
     voters_json = requests.get(
