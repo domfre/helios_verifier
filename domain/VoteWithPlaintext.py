@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from typing import List
-from .EncryptedAnswerWithPlaintext import EncryptedAnswerWithPlaintext
+from EncryptedAnswerWithPlaintext import EncryptedAnswerWithPlaintext
 
 
 @dataclass

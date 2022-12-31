@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from typing import List
-from.ZkProof import ZkProof
+from ZkProof import ZkProof
 
 
 @dataclass

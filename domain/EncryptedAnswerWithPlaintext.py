@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from typing import List
-from.ElGamalCiphertext import ElGamalCiphertext
+from ElGamalCiphertext import ElGamalCiphertext
 
 
 @dataclass

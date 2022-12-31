@@ -1,6 +1,6 @@
 import datetime
-from .ElGamalPublicKey import ElGamalPublicKey
-from .QuestionList import QuestionList
+from ElGamalPublicKey import ElGamalPublicKey
+from QuestionList import QuestionList
 from dataclasses import dataclass
 
 

@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from typing import List
-from.Question import Question
+from Question import Question
 
 
 @dataclass

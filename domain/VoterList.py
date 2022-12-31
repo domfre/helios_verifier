@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from typing import List
-from.Voter import Voter
+from Voter import Voter
 
 
 @dataclass

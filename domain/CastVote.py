@@ -1,6 +1,6 @@
 import datetime
 from dataclasses import dataclass
-from .Vote import Vote
+from Vote import Vote
 
 
 @dataclass
