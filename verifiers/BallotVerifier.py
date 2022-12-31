@@ -1,7 +1,7 @@
 import base64
 import hashlib
 
-from VoteVerifier import verify_vote
+from helios_verifier.verifiers.VoteVerifier import verify_vote
 
 
 def verify_ballot_audit(vote_with_plaintexts, election, vote_fingerprint):
@@ -38,5 +38,5 @@ def verify_ballot_audit(vote_with_plaintexts, election, vote_fingerprint):
 
     # check the fingerprint
     vote_without_plaintexts = vote_with_plaintexts.remove_plaintexts()
-    computed_fingerprint = base64.b64encode(hashlib.sha1(vote_without_plaintexts.toJSON()).digest())[:-1]
+    computed_fingerprint = base64.b64encode(hashlib.sha256(vote_without_plaintexts.toJSON()).digest())[:-1]
     return computed_fingerprint == vote_fingerprint

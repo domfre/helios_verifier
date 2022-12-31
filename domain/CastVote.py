@@ -1,8 +1,11 @@
 import datetime
 from dataclasses import dataclass
-from Vote import Vote
+from dataclasses_json import dataclass_json
+
+from helios_verifier.domain.Vote import Vote
 
 
+@dataclass_json
 @dataclass
 class CastVote:
     cast_at: datetime
@@ -10,4 +13,3 @@ class CastVote:
     vote_hash: str
     voter_hash: str
     voter_uuid: str
-

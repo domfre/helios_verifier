@@ -1,6 +1,6 @@
 import hashlib
 import base64
-from VoteVerifier import verify_vote
+from helios_verifier.verifiers.VoteVerifier import verify_vote
 
 
 def verify_partial_decryption_proof(ciphertext, decryption_factor, proof, public_key):
@@ -16,15 +16,17 @@ def verify_partial_decryption_proof(ciphertext, decryption_factor, proof, public
 
     # compute the challenge generation, Fiat-Shamir style
     str_to_hash = str(proof.commitment.A) + "," + str(proof.commitment.B)
-    computed_challenge = hashlib.sha1(str_to_hash)
+    computed_challenge = hashlib.sha256(str_to_hash)
 
     # check that the challenge matches
     return computed_challenge == proof.challenge
 
 
-def retally_election(election, voters, result, result_proof):
+def retally_election(election, voters, result, ballots):
     # compute the election fingerprint
-    election_fingerprint = base64.b64encode(hashlib.sha1(election.toJSON()).digest())
+    election_fingerprint = base64.b64encode(
+        hashlib.sha256(
+            election.to_json(separators=(',', ':')).encode('utf-8')).digest()).decode()
 
     # keep track of voter fingerprints
     vote_fingerprints = []
@@ -35,11 +37,18 @@ def retally_election(election, voters, result, result_proof):
 
     # go through each voter, check it
     for voter in voters:
-        if not verify_vote(election, voter.vote):
+        cast_vote = 0
+        for ballot in ballots:
+            if ballot.voter_uuid == voter.uuid:
+                cast_vote = ballot
+                break
+        if cast_vote == 0:
+            return False
+        if not verify_vote(election, cast_vote.vote):
             return False
 
         # compute fingerprint
-        vote_fingerprints.append(base64.b64encode(hashlib.sha1(voter.vote.toJSON()).digest()))
+        vote_fingerprints.append(base64.b64encode(hashlib.sha256(voter.vote.to_json(separators=(',', ':')).encode('utf-8')).digest()))
 
         # update tallies, looping through questions and answers within them
         for question_num in range(len(election.questions)):

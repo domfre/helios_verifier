@@ -1,8 +1,11 @@
 from dataclasses import dataclass
+from dataclasses_json import dataclass_json
 from typing import List
-from ElGamalCiphertext import ElGamalCiphertext
+
+from helios_verifier.domain.ElGamalCiphertext import ElGamalCiphertext
 
 
+@dataclass_json
 @dataclass
 class EncryptedAnswerWithPlaintext:
     answer: int

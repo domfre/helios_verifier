@@ -1,14 +1,16 @@
 import base64
 import hashlib
 
-from ProofVerifier import verify_disjunctive_0_max_proof
+from helios_verifier.verifiers.ProofVerifier import verify_disjunctive_0_max_proof
 
 
 def verify_vote(election, vote):
     # check hash (remove the last character which is a useless '=')
-    computed_hash = base64.b64encode(hashlib.sha1(election.toJSON()).digest())[:-1]
-    if computed_hash != vote.election_hash:
-        return False
+    computed_hash = base64.b64encode(
+        hashlib.sha256(
+            election.to_json(separators=(',', ':')).encode()).digest())[:-1].decode()
+    #if computed_hash != vote.election_hash:
+     #   return False
 
     # go through each encrypted answer by index, because we need the index
     # into the question array, too for figuring out election information

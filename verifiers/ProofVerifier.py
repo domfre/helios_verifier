@@ -26,10 +26,10 @@ def verify_disjunctive_0_max_proof(ciphertext, max, disjunctive_proof, public_ke
     list_of_values_to_hash = sum([[p.commitment.A, p.commitment.B] for p in disjunctive_proof], [])
 
     # concatenate as strings
-    str_to_hash = ",".join(list_of_values_to_hash)
+    str_to_hash = ",".join([str(value) for value in list_of_values_to_hash])
 
     # hash
-    expected_challenge = hashlib.sha1(str_to_hash)
+    expected_challenge = hashlib.sha256(str_to_hash.encode())
 
     # last check
-    return computed_challenge == expected_challenge
+    return computed_challenge == int.from_bytes(expected_challenge.digest(), "little")
