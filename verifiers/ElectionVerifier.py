@@ -1,7 +1,7 @@
 import hashlib
 
 from helios_verifier.verifiers.VoteVerifier import verify_vote
-from helios_verifier.Util.HashUtil import sha256_b64
+from helios_verifier.Util.HashUtil import sha256_b64_decoded, sha256_b64
 
 
 def verify_partial_decryption_proof(ciphertext, decryption_factor, proof, public_key):
@@ -25,7 +25,7 @@ def verify_partial_decryption_proof(ciphertext, decryption_factor, proof, public
 
 def retally_election(election, voters, result, ballots):
     # compute the election fingerprint
-    election_fingerprint = sha256_b64(election).decode()
+    election_fingerprint = sha256_b64_decoded(election)
 
     # keep track of voter fingerprints
     vote_fingerprints = []
@@ -47,7 +47,7 @@ def retally_election(election, voters, result, ballots):
             return False
 
         # compute fingerprint
-        vote_fingerprints.append(base64.b64encode(hashlib.sha256(voter.vote.to_json(separators=(',', ':')).encode('utf-8')).digest()))
+        vote_fingerprints.append(sha256_b64(voter))
 
         # update tallies, looping through questions and answers within them
         for question_num in range(len(election.questions)):

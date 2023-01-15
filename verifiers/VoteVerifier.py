@@ -1,10 +1,10 @@
 from helios_verifier.verifiers.ProofVerifier import verify_disjunctive_0_max_proof
-from helios_verifier.Util.HashUtil import sha256_b64
+from helios_verifier.Util.HashUtil import sha256_b64_trimmed_and_decoded
 
 
 def verify_vote(election, vote):
     # check hash (remove the last character which is a useless '=')
-    computed_hash = sha256_b64(election)[:-1].decode()
+    computed_hash = sha256_b64_trimmed_and_decoded(election)
     if computed_hash != vote.election_hash:
         return False
 
