@@ -26,9 +26,6 @@ def verify_audited_ballot(election_uuid, vote_hash):
     verify_ballot_audit(audited_ballot, election)
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     verify_election('d020e5ca-69b5-11ed-ab96-0ea78f2ee8c9')
     verify_audited_ballot('d020e5ca-69b5-11ed-ab96-0ea78f2ee8c9', '3RI3O1oDWOr1EeLKTm3r5WWm2knnpwLWXMuhFKavR50')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
