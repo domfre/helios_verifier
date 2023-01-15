@@ -1,14 +1,10 @@
-import base64
-import hashlib
-
 from helios_verifier.verifiers.ProofVerifier import verify_disjunctive_0_max_proof
+from helios_verifier.Util.HashUtil import sha256_b64
 
 
 def verify_vote(election, vote):
     # check hash (remove the last character which is a useless '=')
-    computed_hash = base64.b64encode(
-        hashlib.sha256(
-            election.to_json(separators=(',', ':')).encode()).digest())[:-1].decode()
+    computed_hash = sha256_b64(election)[:-1].decode()
     if computed_hash != vote.election_hash:
         return False
 
