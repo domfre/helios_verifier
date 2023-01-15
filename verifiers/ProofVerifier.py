@@ -1,4 +1,4 @@
-from helios_verifier.util.HashUtil import sha256
+from helios_verifier.util.HashUtil import hex_sha1
 
 
 def verify_proof(ciphertext, plaintext, proof, public_key):
@@ -29,7 +29,7 @@ def verify_disjunctive_0_max_proof(ciphertext, max, disjunctive_proof, public_ke
     str_to_hash = ",".join([str(value) for value in list_of_values_to_hash])
 
     # hash
-    expected_challenge = sha256(str_to_hash)
+    expected_challenge = hex_sha1(str_to_hash)
 
     # last check
-    return computed_challenge == int.from_bytes(expected_challenge.digest(), "little")
+    return computed_challenge == int.from_bytes(expected_challenge, "big")

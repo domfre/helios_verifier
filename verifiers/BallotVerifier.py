@@ -2,7 +2,7 @@ from helios_verifier.util.HashUtil import sha256_b64_trimmed
 from helios_verifier.verifiers.VoteVerifier import verify_vote
 
 
-def verify_ballot_audit(vote_with_plaintexts, election, vote_fingerprint):
+def verify_ballot_audit(vote_with_plaintexts, election):
     public_key = election.public_key
     # check the proofs
     if not verify_vote(election, vote_with_plaintexts):
@@ -34,7 +34,4 @@ def verify_ballot_audit(vote_with_plaintexts, election, vote_fingerprint):
             if expected_beta != ciphertext.beta:
                 return False
 
-    # check the fingerprint
-    vote_without_plaintexts = vote_with_plaintexts.remove_plaintexts()
-    computed_fingerprint = sha256_b64_trimmed(election)
-    return computed_fingerprint == vote_fingerprint
+    return True

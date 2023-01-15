@@ -11,4 +11,4 @@ from helios_verifier.domain.ZkProof import ZkProof
 class EncryptedAnswer:
     choices: List[ElGamalCiphertext]
     individual_proofs: List[List[ZkProof]]
-    overall_proof: str
+    overall_proof: List[ZkProof]

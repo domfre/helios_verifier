@@ -15,6 +15,5 @@ class CastVote:
     voter_uuid: str
 
     def __post_init__(self):
-        if self.cast_at is None:
-            return
-        self.cast_at = datetime.datetime.strptime(self.cast_at.split('.')[0], '%Y-%m-%d %H:%M:%S')
+        if self.cast_at is not None:
+            self.cast_at = datetime.datetime.strptime(self.cast_at.split('.')[0], '%Y-%m-%d %H:%M:%S')

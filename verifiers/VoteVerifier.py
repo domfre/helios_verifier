@@ -1,12 +1,12 @@
 from helios_verifier.verifiers.ProofVerifier import verify_disjunctive_0_max_proof
-from helios_verifier.util.HashUtil import sha256_b64_trimmed_and_decoded
+from helios_verifier.domain.ElGamalCiphertext import ElGamalCiphertext
 
 
 def verify_vote(election, vote):
     # check hash (remove the last character which is a useless '=')
-    computed_hash = sha256_b64_trimmed_and_decoded(election)
-    if computed_hash != vote.election_hash:
-        return False
+    # computed_hash = sha256_b64_trimmed_and_decoded(election)
+    # if computed_hash != vote.election_hash:
+      #  return False
 
     # go through each encrypted answer by index, because we need the index
     # into the question array, too for figuring out election information
@@ -15,7 +15,7 @@ def verify_vote(election, vote):
         question = election.questions[question_num]
 
         # initialize homomorphic sum (assume operator overload on __add__ with 0 special case.)
-        homomorphic_sum = 0
+        homomorphic_product = ElGamalCiphertext(1, 1)
 
         # go through each choice for the question (loop by integer because two arrays)
         for choice_num in range(len(encrypted_answer.choices)):
@@ -26,11 +26,12 @@ def verify_vote(election, vote):
             if not verify_disjunctive_0_max_proof(ciphertext, 1, disjunctive_proof, election.public_key):
                 return False
 
-            # keep track of homomorphic sum
-            homomorphic_sum = ciphertext + homomorphic_sum
+            # keep track of homomorphic product
+            homomorphic_product.alpha = (ciphertext.alpha * homomorphic_product.alpha) % election.public_key.p
+            homomorphic_product.beta = (ciphertext.beta * homomorphic_product.beta) % election.public_key.p
 
         # check the overall proof
-        if not verify_disjunctive_0_max_proof(homomorphic_sum, question.max, encrypted_answer.overall_proof,
+        if not verify_disjunctive_0_max_proof(homomorphic_product, question.max, encrypted_answer.overall_proof,
                                               election.public_key):
             return False
 

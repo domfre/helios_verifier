@@ -32,3 +32,7 @@ def sha256_b64_trimmed_and_decoded(helios_object):
 
 def sha256(string_object):
     return hashlib.sha256(string_object.encode())
+
+
+def hex_sha1(string_object):
+    return hashlib.sha1(string_object.encode()).digest()
