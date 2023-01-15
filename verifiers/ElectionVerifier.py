@@ -1,5 +1,3 @@
-import hashlib
-
 from helios_verifier.verifiers.VoteVerifier import verify_vote
 from helios_verifier.domain.ElGamalCiphertext import ElGamalCiphertext
 from helios_verifier.util.HashUtil import sha256_b64_decoded, sha256_b64, hex_sha1

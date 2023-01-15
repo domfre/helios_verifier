@@ -3,11 +3,6 @@ from helios_verifier.domain.ElGamalCiphertext import ElGamalCiphertext
 
 
 def verify_vote(election, vote):
-    # check hash (remove the last character which is a useless '=')
-    # computed_hash = sha256_b64_trimmed_and_decoded(election)
-    # if computed_hash != vote.election_hash:
-      #  return False
-
     # go through each encrypted answer by index, because we need the index
     # into the question array, too for figuring out election information
     for question_num in range(len(vote.answers)):
