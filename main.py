@@ -1,45 +1,22 @@
-import base64
-import hashlib
-
-import requests
-
-from helios_verifier.domain.CastVote import CastVote
-from helios_verifier.domain.Election import Election
-from helios_verifier.domain.Trustee import Trustee
-from helios_verifier.domain.Voter import Voter
-from helios_verifier.util.UrlUtil import ELECTION_BASE_URL, VOTERS_BASE_URL_WITH_ELECTION_PLACEHOLDER, \
-    BALLOTS_BASE_URL_WITH_ELECTION_AND_VOTER_PLACEHOLDERS, \
-    RESULTS_BASE_URL_WITH_ELECTION_PLACEHOLDER, \
-    TRUSTEES_BASE_URL_WITH_ELECTION_PLACEHOLDER
+from helios_verifier.DataRetriever import retrieve_election_data
+from helios_verifier.DataRetriever import retrieve_voters_data
+from helios_verifier.DataRetriever import retrieve_trustees_data
+from helios_verifier.DataRetriever import retrieve_results_data
+from helios_verifier.DataRetriever import retrieve_ballots_data
 from helios_verifier.verifiers.ElectionVerifier import retally_election
 
 
 def verify(election_uuid):
-    # deserialize jsons
-    election = Election.from_dict(requests.get(ELECTION_BASE_URL + election_uuid).json())
 
-    voters_json = requests.get(
-        VOTERS_BASE_URL_WITH_ELECTION_PLACEHOLDER.replace('election_uuid', election_uuid)).json()
-    voters = [Voter.from_dict(voter_json) for voter_json in voters_json]
-
-    ballots = []
-    for voter in voters:
-        ballot_url = BALLOTS_BASE_URL_WITH_ELECTION_AND_VOTER_PLACEHOLDERS \
-            .replace('election_uuid', election_uuid) \
-            .replace('voter_uuid', voter.uuid)
-        cast_vote = CastVote.from_dict(requests.get(ballot_url).json())
-        if cast_vote.vote is not None:
-            ballots.append(cast_vote)
-
-    results_json = requests.get(
-        RESULTS_BASE_URL_WITH_ELECTION_PLACEHOLDER.replace('election_uuid', election_uuid)).json()
-
-    trustees_json = requests.get(
-        TRUSTEES_BASE_URL_WITH_ELECTION_PLACEHOLDER.replace('election_uuid', election_uuid)).json()
-    trustees = [Trustee.from_dict(trustee_json) for trustee_json in trustees_json]
+    # retrieve data from the election source server
+    election = retrieve_election_data(election_uuid)
+    voters = retrieve_voters_data(election_uuid)
+    ballots = retrieve_ballots_data(election_uuid, voters)
+    results = retrieve_results_data(election_uuid)
+    trustees = retrieve_trustees_data(election_uuid)
 
     # retally election
-    retally_election(election, voters, results_json[0], ballots)
+    retally_election(election, voters, results, ballots)
 
 
 # Press the green button in the gutter to run the script.
