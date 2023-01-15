@@ -9,8 +9,8 @@ def verify_vote(election, vote):
     computed_hash = base64.b64encode(
         hashlib.sha256(
             election.to_json(separators=(',', ':')).encode()).digest())[:-1].decode()
-    #if computed_hash != vote.election_hash:
-     #   return False
+    if computed_hash != vote.election_hash:
+        return False
 
     # go through each encrypted answer by index, because we need the index
     # into the question array, too for figuring out election information

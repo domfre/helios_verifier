@@ -4,7 +4,7 @@ from helios_verifier.domain.CastVote import CastVote
 from helios_verifier.domain.Election import Election
 from helios_verifier.domain.Trustee import Trustee
 from helios_verifier.domain.Voter import Voter
-from helios_verifier.util.DataUrls import ELECTION_BASE_URL, VOTERS_BASE_URL_WITH_ELECTION_PLACEHOLDER, \
+from helios_verifier.data.DataUrls import ELECTION_BASE_URL, VOTERS_BASE_URL_WITH_ELECTION_PLACEHOLDER, \
     BALLOTS_BASE_URL_WITH_ELECTION_AND_VOTER_PLACEHOLDERS, \
     RESULTS_BASE_URL_WITH_ELECTION_PLACEHOLDER, \
     TRUSTEES_BASE_URL_WITH_ELECTION_PLACEHOLDER

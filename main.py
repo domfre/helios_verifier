@@ -1,8 +1,8 @@
-from helios_verifier.DataRetriever import retrieve_election_data
-from helios_verifier.DataRetriever import retrieve_voters_data
-from helios_verifier.DataRetriever import retrieve_trustees_data
-from helios_verifier.DataRetriever import retrieve_results_data
-from helios_verifier.DataRetriever import retrieve_ballots_data
+from helios_verifier.data.DataRetriever import retrieve_election_data
+from helios_verifier.data.DataRetriever import retrieve_voters_data
+from helios_verifier.data.DataRetriever import retrieve_trustees_data
+from helios_verifier.data.DataRetriever import retrieve_results_data
+from helios_verifier.data.DataRetriever import retrieve_ballots_data
 from helios_verifier.verifiers.ElectionVerifier import retally_election
 
 
