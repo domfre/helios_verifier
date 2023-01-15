@@ -1,7 +1,7 @@
 import hashlib
 
 from helios_verifier.verifiers.VoteVerifier import verify_vote
-from helios_verifier.Util.HashUtil import sha256_b64_decoded, sha256_b64
+from helios_verifier.util.HashUtil import sha256_b64_decoded, sha256_b64
 
 
 def verify_partial_decryption_proof(ciphertext, decryption_factor, proof, public_key):

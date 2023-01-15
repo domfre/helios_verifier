@@ -1,5 +1,5 @@
 from helios_verifier.verifiers.ProofVerifier import verify_disjunctive_0_max_proof
-from helios_verifier.Util.HashUtil import sha256_b64_trimmed_and_decoded
+from helios_verifier.util.HashUtil import sha256_b64_trimmed_and_decoded
 
 
 def verify_vote(election, vote):

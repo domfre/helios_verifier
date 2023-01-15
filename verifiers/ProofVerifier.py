@@ -1,4 +1,4 @@
-from helios_verifier.Util.HashUtil import sha256
+from helios_verifier.util.HashUtil import sha256
 
 
 def verify_proof(ciphertext, plaintext, proof, public_key):
