@@ -18,3 +18,4 @@ class EncryptedAnswerWithPlaintext:
     def __post_init__(self):
         if self.randomness is not None:
             self.randomness = [int(r) for r in self.randomness]
+        self.answer = self.answer[0]

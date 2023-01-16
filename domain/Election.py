@@ -2,7 +2,7 @@ import datetime
 
 from dataclasses_json import dataclass_json, config
 from dataclasses import dataclass, field
-from typing import List
+from typing import List, Optional
 
 from helios_verifier.domain.ElGamalPublicKey import ElGamalPublicKey
 from helios_verifier.domain.Question import Question
@@ -21,9 +21,9 @@ class Election:
     short_name: str
     use_voter_aliases: bool
     uuid: str
-    voters_hash: str
-    voting_ends_at: str
-    voting_starts_at: str
+    voters_hash: Optional[str]
+    voting_ends_at: Optional[str]
+    voting_starts_at: Optional[str]
 
     def __post_init__(self):
         self.frozen_at = str(self.frozen_at)

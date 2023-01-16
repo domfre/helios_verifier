@@ -1,5 +1,7 @@
 import datetime
 from dataclasses import dataclass
+from typing import Optional
+
 from dataclasses_json import dataclass_json
 
 from helios_verifier.domain.Vote import Vote
@@ -10,8 +12,8 @@ from helios_verifier.domain.Vote import Vote
 class CastVote:
     cast_at: datetime
     vote: Vote
-    vote_hash: str
-    voter_hash: str
+    vote_hash: Optional[str]
+    voter_hash: Optional[str]
     voter_uuid: str
 
     def __post_init__(self):

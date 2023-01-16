@@ -19,3 +19,4 @@ class Trustee:
     def __post_init__(self):
         if self.decryption_factors is not None:
             self.decryption_factors = [[int(f) for f in df] for df in self.decryption_factors]
+
