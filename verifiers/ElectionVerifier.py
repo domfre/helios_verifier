@@ -81,9 +81,4 @@ def retally_election(election, voters, result, ballots, trustees):
                         != tallies[question_num][choice_num].beta % election.public_key.p:
                     return False
 
-    # return the complete tally, now that it is confirmed
-    return {
-        'election_fingerprint': election_fingerprint,
-        'vote_fingerprints': vote_fingerprints,
-        'verified_tally': result
-    }
+    return True
