@@ -5,6 +5,7 @@ This repository provides an application for a full verification of an election a
 or any equivalent voting system respecting the guidelines defined by the official 
 [Helios v4 specs](https://documentation.heliosvoting.org/verification-specs/helios-v4) regarding the data formats 
 and verification protocols. <br>
+
 The [Helios v4 specs](https://documentation.heliosvoting.org/verification-specs/helios-v4) also provides the basis for 
 the implementation of the core methods in this repository responsible for verifying 
 the different components of an election.
