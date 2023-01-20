@@ -1,5 +1,5 @@
 Welcome to helios_verifier's documentation!
-===================================
+===========================================
 
 This repository provides an application for a full verification of an election and its components conducted by the
 `Helios Voting System <https://vote.heliosvoting.org/>`_
