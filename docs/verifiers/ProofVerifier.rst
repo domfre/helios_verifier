@@ -1,0 +1,2 @@
+.. automodule:: verifiers.ProofVerifier
+   :members:

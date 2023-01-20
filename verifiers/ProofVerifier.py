@@ -2,6 +2,16 @@ from helios_verifier.util.HashUtil import hex_sha1
 
 
 def verify_proof(ciphertext, plaintext, proof, public_key):
+    """
+    Verification of an individual non-interactive proof according to the Chaum-Pedersen
+    protocol that the corresponding ciphertext encodes the integer given by the plaintext
+
+    :param ciphertext: ElGamalCiphertext
+    :param plaintext: plain value encoded by the ciphertext
+    :param proof: (Chaum-Pedersen-) ZkProof for the plaintext encoded by the ciphertext
+    :param public_key: public_key of the election
+    :returns bool indicating whether the validation succeeded or not
+    """
     if pow(public_key.g, proof.response, public_key.p) != (
             (proof.commitment.A * pow(ciphertext.alpha, proof.challenge, public_key.p)) % public_key.p):
         return False
@@ -14,6 +24,19 @@ def verify_proof(ciphertext, plaintext, proof, public_key):
 
 
 def verify_disjunctive_0_max_proof(ciphertext, max, disjunctive_proof, public_key):
+    """
+    Verifies a list of max disjunctive zero-knowledge proofs, one for each possible value
+    of the plaintext between 0 and max. The challenges of all the single zero-knowledge proofs must
+    sum up to the actual challenge of the protocol to ensure that there is one real proof whereas
+    the others are simulated
+
+    :param ciphertext: ElGamalCiphertext
+    :param max: maximum value that the ciphertext encodes
+            (a ciphertext encodes a value between o and max)
+    :param disjunctive_proof: list[ZkProof], one for each value between 0 and max
+    :param public_key: public_key of the election
+    :returns bool indicating whether validation succeeded or not
+    """
     for i in range(max + 1):
         # the proof for plaintext "i"
         if not verify_proof(ciphertext, i, disjunctive_proof[i], public_key):

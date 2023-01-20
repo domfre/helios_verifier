@@ -1,4 +1,3 @@
-from helios_verifier.util.HashUtil import sha256_b64_trimmed
 from helios_verifier.verifiers.VoteVerifier import verify_vote
 
 
