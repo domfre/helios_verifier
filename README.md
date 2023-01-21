@@ -15,6 +15,13 @@ the different components of an election.
 ## Usage
 In order to run the verifier with the predefined configuration navigate into /helios_verifier (root of the project) and run
 ```
-python3.10 -m helios_verifier.helios_verifier_app
+python3.10 -m helios_verifier.helios_verifier_app $election_uuid $vote_hash
 ```
 Adjust the command for your python installation
+
+***
+
+## Remarks 
+
+Currently, the verifier only works for elections hosted on the helios server. This can be easily changed by adjusting the host url <br>
+in DataUrls module.

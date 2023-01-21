@@ -1,3 +1,18 @@
+"""
+This module provides methods to retrieve the required components of an election from an
+election server.
+
+In particular:
+
+    - retrieve_election_data
+    - retrieve_voters_data
+    - retrieve_ballots_data
+    - retrieve_results_data
+    - retrieve_trustees_data
+    - retrieve_audited_ballot_data
+
+Currently this works only for elections hosted on the helios server as the URL is currently hardcoded
+"""
 import requests
 
 from helios_verifier.domain.CastVote import CastVote

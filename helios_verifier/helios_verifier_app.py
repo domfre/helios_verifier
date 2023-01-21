@@ -6,6 +6,8 @@ from helios_verifier.data.DataRetriever import retrieve_ballots_data
 from helios_verifier.verifiers.ElectionVerifier import retally_election
 from helios_verifier.verifiers.BallotVerifier import verify_ballot_audit
 
+import sys
+
 
 def verify_election(election_uuid):
     print(f'###################################################################################################\n')
@@ -64,5 +66,15 @@ def verify_audited_ballot(election_uuid, vote_hash):
 
 
 if __name__ == '__main__':
-    verify_election('d020e5ca-69b5-11ed-ab96-0ea78f2ee8c9')
-    verify_audited_ballot('d020e5ca-69b5-11ed-ab96-0ea78f2ee8c9', '3RI3O1oDWOr1EeLKTm3r5WWm2knnpwLWXMuhFKavR50')
+    args = sys.argv
+    if len(args) < 2:
+        print(f'WARNING: election_uuid missing, running in default mode')
+        verify_election('d020e5ca-69b5-11ed-ab96-0ea78f2ee8c9')
+    else:
+        verify_election(args[1])
+
+    if len(args) < 3:
+        print(f'WARNING: Either election_uuid or vote_hash missing or both, running in default mode')
+        verify_audited_ballot('d020e5ca-69b5-11ed-ab96-0ea78f2ee8c9', '3RI3O1oDWOr1EeLKTm3r5WWm2knnpwLWXMuhFKavR50')
+    else:
+        verify_audited_ballot(args[1], args[2])
