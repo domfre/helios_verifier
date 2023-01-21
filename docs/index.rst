@@ -25,6 +25,7 @@ Source available on https://github.com/domfre/helios_verifier.
    verifiers/VoteVerifier
    verifiers/ElectionVerifier
    verifiers/BallotVerifier
+   verifiers/DecryptionFactorVerifier
 
 
 
