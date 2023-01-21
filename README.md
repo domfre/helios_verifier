@@ -10,4 +10,7 @@ The [Helios v4 specs](https://documentation.heliosvoting.org/verification-specs/
 the implementation of the core methods in this repository responsible for verifying 
 the different components of an election.
 
+For some background on the cryptographic primitives used in helios and thus in this verifier see: <br>
+[embed]./resources/helios-voting-system.pdf[/embed]
+
 
