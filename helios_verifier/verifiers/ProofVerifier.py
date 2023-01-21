@@ -6,11 +6,12 @@ def verify_proof(ciphertext, plaintext, proof, public_key):
     Verification of an individual non-interactive proof according to the Chaum-Pedersen
     protocol that the corresponding ciphertext encodes the integer given by the plaintext
 
-    :parameter ciphertext: ElGamalCiphertext
-    :parameter plaintext: plain value encoded by the ciphertext
-    :parameter proof: (Chaum-Pedersen-) ZkProof for the plaintext encoded by the ciphertext
-    :parameter public_key: public_key of the election
-    :returns bool indicating whether the validation succeeded or not
+    :param ciphertext: ElGamalCiphertext
+    :param plaintext: plain value encoded by the ciphertext
+    :param proof: (Chaum-Pedersen-) ZkProof for the plaintext encoded by the ciphertext
+    :param public_key: public_key of the election
+    :return bool indicating whether the verification succeeded or not
+
     """
     if pow(public_key.g, proof.response, public_key.p) != (
             (proof.commitment.A * pow(ciphertext.alpha, proof.challenge, public_key.p)) % public_key.p):
@@ -30,11 +31,12 @@ def verify_disjunctive_0_max_proof(ciphertext, max, disjunctive_proof, public_ke
     sum up to the actual challenge of the protocol to ensure that there is one real proof whereas
     the others are simulated
 
-    :parameter ciphertext: ElGamalCiphertext
-    :parameter max: maximum value that the ciphertext encodes (a ciphertext encodes a value between o and max)
-    :parameter disjunctive_proof: list[ZkProof], one for each value between 0 and max
-    :parameter public_key: public_key of the election
-    :returns bool indicating whether validation succeeded or not
+    :param ciphertext: ElGamalCiphertext
+    :param max: maximum value that the ciphertext encodes (a ciphertext encodes a value between o and max)
+    :param disjunctive_proof: list[ZkProof], one for each value between 0 and max
+    :param public_key: public_key of the election
+    :returns bool indicating whether verification succeeded or not
+
     """
     for i in range(max + 1):
         # the proof for plaintext "i"

@@ -1,30 +1,23 @@
 from helios_verifier.verifiers.VoteVerifier import verify_vote
+from helios_verifier.verifiers.DecryptionFactorVerifier import verify_partial_decryption_proof
 from helios_verifier.domain.ElGamalCiphertext import ElGamalCiphertext
-from helios_verifier.util.HashUtil import sha256_b64_decoded, sha256_b64, hex_sha1
-
-
-def verify_partial_decryption_proof(ciphertext, decryption_factor, proof, public_key):
-    # Here, we prove that (g, y, ciphertext.alpha, decryption_factor) is a DDH tuple, proving knowledge of secret key x.
-    # Before we were working with (g, alpha, y, beta/g^m), proving knowledge of the random factor r.
-    if pow(public_key.g, proof.response, public_key.p) != (
-            (proof.commitment.A * pow(public_key.y, proof.challenge, public_key.p)) % public_key.p):
-        return False
-
-    if pow(ciphertext.alpha, proof.response, public_key.p) != (
-            (proof.commitment.B * pow(decryption_factor, proof.challenge, public_key.p)) % public_key.p):
-        return False
-
-    # compute the challenge generation, Fiat-Shamir style
-    str_to_hash = str(proof.commitment.A) + "," + str(proof.commitment.B)
-    computed_challenge = hex_sha1(str_to_hash)
-
-    # check that the challenge matches
-    return int.from_bytes(computed_challenge, "big") == proof.challenge
+from helios_verifier.util.HashUtil import sha256_b64
 
 
 def retally_election(election, voters, result, ballots, trustees):
-    # compute the election fingerprint
-    election_fingerprint = sha256_b64_decoded(election)
+    """
+    Protocol for the verification of a whole election. This means verifying the votes of all the voters,
+    verifying the overall election result and proving for the trustees the knowledge of the secret keys
+    used in the election.
+
+    :param election: election to be verified
+    :param voters: voters that casted a vote in the election
+    :param result: overall election result
+    :param ballots: cast votes to be verified
+    :param trustees: trustees responsible for generating the key pairs used in the election. They ned to proof
+        the knowledge of the secret keys
+    :return: bool, True if verification of all components succeeded, False otherwise
+    """
 
     # keep track of voter fingerprints
     vote_fingerprints = []
