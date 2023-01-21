@@ -16,9 +16,6 @@ of an election is based on and inspired by the `Helios v4 specs <https://documen
 
 Source available on https://github.com/domfre/helios_verifier.
 
-Contents
---------
-
 .. toctree::
    :maxdepth: 2
    :caption: Verifiers
