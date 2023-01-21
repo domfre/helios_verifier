@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to helios_verifier's documentation!
+Welcome to HeliosVerifier's documentation!
 ===========================================
 
 This repository provides an application for a full verification of an election and its components conducted by the
