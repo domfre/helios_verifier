@@ -32,7 +32,7 @@ Contents
    :maxdepth: 2
    :caption: Data
 
-   data/DataReceiver
+   data/DataRetriever
 
 
 

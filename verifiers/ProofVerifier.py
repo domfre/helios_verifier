@@ -5,7 +5,6 @@ def verify_proof(ciphertext, plaintext, proof, public_key):
     """
     Verification of an individual non-interactive proof according to the Chaum-Pedersen
     protocol that the corresponding ciphertext encodes the integer given by the plaintext
-
     :param ciphertext: ElGamalCiphertext
     :param plaintext: plain value encoded by the ciphertext
     :param proof: (Chaum-Pedersen-) ZkProof for the plaintext encoded by the ciphertext
@@ -29,10 +28,8 @@ def verify_disjunctive_0_max_proof(ciphertext, max, disjunctive_proof, public_ke
     of the plaintext between 0 and max. The challenges of all the single zero-knowledge proofs must
     sum up to the actual challenge of the protocol to ensure that there is one real proof whereas
     the others are simulated
-
     :param ciphertext: ElGamalCiphertext
-    :param max: maximum value that the ciphertext encodes
-            (a ciphertext encodes a value between o and max)
+    :param max: maximum value that the ciphertext encodes (a ciphertext encodes a value between o and max)
     :param disjunctive_proof: list[ZkProof], one for each value between 0 and max
     :param public_key: public_key of the election
     :returns bool indicating whether validation succeeded or not
