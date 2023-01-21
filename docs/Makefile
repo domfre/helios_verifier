@@ -5,6 +5,7 @@
 # from the environment for the first two.
 SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
+SPHINXPROJ    = helios_verifier
 SOURCEDIR     = .
 BUILDDIR      = _build
 
