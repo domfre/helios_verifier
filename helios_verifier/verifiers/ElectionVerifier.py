@@ -9,6 +9,7 @@ def retally_election(election, voters, result, ballots, trustees):
     Protocol for the verification of a whole election. This means verifying the votes of all the voters,
     verifying the overall election result and proving for the trustees the knowledge of the secret keys
     used in the election.
+
     :param election: election to be verified
     :param voters: voters that casted a vote in the election
     :param result: overall election result

@@ -6,6 +6,7 @@ def verify_ballot_audit(vote_with_plaintexts, election):
     Verifies a vote and if it was properly encrypted. First calls :meth:`verify_vote` to verify
     the proofs. For each encrypted answer it is then checked whether the ciphertexts of all the possible
     choices are properly generated with the randomness used for this election.
+
     :param vote_with_plaintexts: cast vote of a voter with the encrypted answer accompanied with the respective plaintexts
     :param election: represents the election the ballot was cast for
     :return: bool indicating whether the verification succeeded or not

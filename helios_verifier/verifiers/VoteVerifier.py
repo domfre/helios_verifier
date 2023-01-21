@@ -7,6 +7,7 @@ def verify_vote(election, vote):
     Verifies a vote by iteration through all questions. For each question, a 0...max zero-knowledge
     proof is performed via :meth:`verify_disjunctive_0_max_proof` for every possible answer (choice)
     of the question. An overall-proof is then performed on the homomorphic sum of all the ciphertexts.
+
     :param election: election to verify the votes for
     :param vote: CastVote of a voter that is to be verified
     :return: bool indicating whether the verification succeeded or not

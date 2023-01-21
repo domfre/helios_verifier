@@ -6,6 +6,7 @@ def verify_partial_decryption_proof(ciphertext, decryption_factor, proof, public
     Protocol verifying that the given decryption factor decrypts to the claimed result with the
     claimed proof. This means proving that (public_key.g, public_key.y, ciphertext.alpha, decryption_factor)
     is a DDH tuple and therefore proving the knowledge of the secret key.
+
     :param ciphertext: ciphertext of an encrypted answer (choice)
     :param decryption_factor: decryption_factor corresponding to the encrypted choice
     :param proof: ZKProof corresponding to the encrypted choice
