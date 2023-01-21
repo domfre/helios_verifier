@@ -1,9 +1,3 @@
-"""
-verifiers.BallotVerifier
-~~~~~~~~~~~~~~~~~~~~~~~~
-helios_verifier
-:author: Dominik Frey
-"""
 from helios_verifier.verifiers.VoteVerifier import verify_vote
 
 

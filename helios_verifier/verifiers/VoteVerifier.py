@@ -1,9 +1,3 @@
-"""
-verifiers.VoteVerifier
-~~~~~~~~~~~~~~~~~~~~~~
-helios_verifier
-:author: Dominik Frey
-"""
 from helios_verifier.verifiers.ProofVerifier import verify_disjunctive_0_max_proof
 from helios_verifier.domain.ElGamalCiphertext import ElGamalCiphertext
 
