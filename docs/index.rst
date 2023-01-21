@@ -29,14 +29,6 @@ Source available on https://github.com/domfre/helios_verifier.
 
 
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Data
-
-   data/DataRetriever
-
-
-
 Indices and tables
 ==================
 

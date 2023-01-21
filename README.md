@@ -18,4 +18,3 @@ In order to run the verifier with the predefined configuration navigate into /he
 python3.10 -m helios_verifier.helios_verifier_app
 ```
 Adjust the command for your python installation
-
