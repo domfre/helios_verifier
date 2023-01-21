@@ -13,8 +13,7 @@ def retally_election(election, voters, result, ballots, trustees):
     :param voters: voters that casted a vote in the election
     :param result: overall election result
     :param ballots: cast votes to be verified
-    :param trustees: trustees responsible for generating the key pairs used in the election. They ned to proof
-        the knowledge of the secret keys
+    :param trustees: trustees responsible for generating the key pairs used in the election. They ned to proof the knowledge of the secret keys
     :return: bool, True if verification of all components succeeded, False otherwise
     """
 
