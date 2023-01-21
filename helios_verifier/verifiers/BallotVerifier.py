@@ -1,6 +1,6 @@
 """
 verifiers.BallotVerifier
-~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 helios_verifier
 :author: Dominik Frey
 """
