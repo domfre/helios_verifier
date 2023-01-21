@@ -9,7 +9,7 @@ def verify_proof(ciphertext, plaintext, proof, public_key):
     :param plaintext: plain value encoded by the ciphertext
     :param proof: (Chaum-Pedersen-) ZkProof for the plaintext encoded by the ciphertext
     :param public_key: public_key of the election
-    :return bool indicating whether the verification succeeded or not
+    :return: bool indicating whether the verification succeeded or not
 
     """
     if pow(public_key.g, proof.response, public_key.p) != (
@@ -33,7 +33,7 @@ def verify_disjunctive_0_max_proof(ciphertext, max, disjunctive_proof, public_ke
     :param max: maximum value that the ciphertext encodes (a ciphertext encodes a value between o and max)
     :param disjunctive_proof: list[ZkProof], one for each value between 0 and max
     :param public_key: public_key of the election
-    :returns bool indicating whether verification succeeded or not
+    :return: bool indicating whether verification succeeded or not
 
     """
     for i in range(max + 1):

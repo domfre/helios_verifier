@@ -9,7 +9,7 @@ def verify_ballot_audit(vote_with_plaintexts, election):
     :param vote_with_plaintexts: cast vote of a voter with the encrypted answer accompanied with the
         respective plaintexts
     :param election: represents the election the ballot was cast for
-    :return bool indicating whether the verification succeeded or not
+    :return: bool indicating whether the verification succeeded or not
     """
     public_key = election.public_key
     # check the proofs

@@ -9,7 +9,7 @@ def verify_vote(election, vote):
     of the question. An overall-proof is then performed on the homomorphic sum of all the ciphertexts.
     :param election: election to verify the votes for
     :param vote: CastVote of a voter that is to be verified
-    :return bool indicating whether the verification succeeded or not
+    :return: bool indicating whether the verification succeeded or not
     """
     # go through each encrypted answer by index, because we need the index
     # into the question array, too for figuring out election information
