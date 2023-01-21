@@ -1,3 +1,9 @@
+"""
+verifiers.ProofVerifier
+~~~~~~~~~~~~~~~~
+helios_verifier
+:author: Dominik Frey
+"""
 from helios_verifier.util.HashUtil import hex_sha1
 
 
