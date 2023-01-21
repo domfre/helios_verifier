@@ -18,6 +18,8 @@ In order to run the verifier with the predefined configuration navigate into /he
 python3.10 -m helios_verifier.helios_verifier_app $election_uuid $vote_hash
 ```
 Adjust the command for your python installation
+If no election_uuid is passed, the verifier runs in default mode, verifying an example election. Same holds true for the vote_hash, <br>
+which is the hash of an audited ballot to perform audited ballot verification.
 
 ***
 
