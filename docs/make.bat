@@ -7,7 +7,6 @@ REM Command file for Sphinx documentation
 if "%SPHINXBUILD%" == "" (
 	set SPHINXBUILD=sphinx-build
 )
-set SPHINXPROJ=HeliosVerifier
 set SOURCEDIR=.
 set BUILDDIR=_build
 

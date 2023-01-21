@@ -1,10 +1,10 @@
-.. helios_verifier documentation master file, created by
-   sphinx-quickstart on Fri Jan 20 21:39:57 2023.
+.. HeliosVerifier documentation master file, created by
+   sphinx-quickstart on Sat Jan 21 11:55:29 2023.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
 Welcome to HeliosVerifier's documentation!
-===========================================
+==========================================
 
 This repository provides an application for a full verification of an election and its components conducted by the
 `Helios Voting System <https://vote.heliosvoting.org/>`_
