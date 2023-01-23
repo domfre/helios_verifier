@@ -10,7 +10,13 @@ The [Helios v4 specs](https://documentation.heliosvoting.org/verification-specs/
 the implementation of the core methods in this repository responsible for verifying 
 the different components of an election.
 
-***
+## Documentation
+Please visit the [HeliosVerifierDocs](https://helios-verifier.readthedocs.io/en/latest/#) for the official documentation.
+For new contributions, the documentation will be updated automatically. For any manual triggering, from within the docs folder, execute
+```bash
+(helios_verifier/docs)$ make clean
+(helios_verifier/docs)$ make html
+```
 
 ## Setup:
 
@@ -26,7 +32,7 @@ $ source venv/bin/activate
 
 ## Usage
 In order to run the verifier with the predefined configuration navigate into /helios_verifier (root of the project) and run
-```
+```bash
 (helios_verifier)$ python3.10 -m helios_verifier.helios_verifier_app $election_uuid $vote_hash
 ```
 Adjust the command for your python installation. <br>
@@ -34,10 +40,9 @@ If no election_uuid is passed, the verifier runs in default mode, verifying an e
 Same holds true for the vote_hash, which is the hash of an audited ballot to perform audited ballot verification.
 
 In case of missing dependencies, please run from the root of the project:
-```
+```bash
 pip install -r requirements.txt
 ```
-***
 
 ## Remarks 
 

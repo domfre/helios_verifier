@@ -1,7 +1,5 @@
-import datetime
-
-from dataclasses_json import dataclass_json, config
-from dataclasses import dataclass, field
+from dataclasses_json import dataclass_json
+from dataclasses import dataclass
 from typing import List, Optional
 
 from helios_verifier.domain.ElGamalPublicKey import ElGamalPublicKey

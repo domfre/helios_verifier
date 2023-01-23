@@ -1,6 +1,4 @@
-dataclasses
 dataclasses_json
-typing
 requests~=2.28.1
 
 # doc

@@ -1,0 +1,25 @@
+[build-system]
+build-backend = "flit_core.buildapi"
+requires = ["flit_core >=3.8.0,<4"]
+
+[project]
+name = "Helios Verifier"
+version = "1.0.0"
+authors = [
+    {name = "Dominik Frey", email = "dominik.frey13@gmail.com"},
+]
+description = "Library providing methods to verify an election conducted by the helios voting system"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+]
+dependencies = [
+    "requests~=2.28.1",
+]
