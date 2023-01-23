@@ -11,7 +11,7 @@ the implementation of the core methods in this repository responsible for verify
 the different components of an election.
 
 ## Documentation
-Please visit the [HeliosVerifierDocs](https://helios-verifier.readthedocs.io/en/latest/#) for the official documentation.
+Please visit the [HeliosVerifierDocs](https://helios-verifier.readthedocs.io/en/main/#) for the official documentation.
 For new contributions, the documentation will be updated automatically. For any local building, from within the docs folder, execute
 ```bash
 (helios_verifier/docs)$ make clean
