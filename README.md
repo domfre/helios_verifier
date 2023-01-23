@@ -12,10 +12,22 @@ the different components of an election.
 
 ***
 
+## Setup:
+
+```bash
+$ git clone ...
+$ cd ... # into the project directory
+$ python3 -m venv --prompt helios_verifier venv
+$ source venv/bin/activate
+(helios_verifier)$ pip install --upgrade pip
+(helios_verifier)$ pip install -r requirements.txt
+(helios_verifier)$ pip deactivate
+```
+
 ## Usage
 In order to run the verifier with the predefined configuration navigate into /helios_verifier (root of the project) and run
 ```
-python3.10 -m helios_verifier.helios_verifier_app $election_uuid $vote_hash
+(helios_verifier)$ python3.10 -m helios_verifier.helios_verifier_app $election_uuid $vote_hash
 ```
 Adjust the command for your python installation. <br>
 If no election_uuid is passed, the verifier runs in default mode, verifying an example election. <br>
