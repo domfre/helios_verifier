@@ -29,4 +29,4 @@ pip install -r requirements.txt
 
 ## Remarks 
 
-Currently, the verifier only works for elections hosted on the helios server. This can be easily changed by adjusting the host url in DataUrls module.
+Currently, the verifier only works for elections hosted on the helios server. This can easily be changed by adjusting the host url in the DataUrls module.
