@@ -2,3 +2,9 @@ dataclasses
 dataclasses_json
 typing
 requests~=2.28.1
+
+# doc
+Sphinx
+sphinx-rtd-theme
+# myst-parser
+# sphinxcontrib-bibtex
