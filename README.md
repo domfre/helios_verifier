@@ -12,7 +12,7 @@ the different components of an election.
 
 ## Documentation
 Please visit the [HeliosVerifierDocs](https://helios-verifier.readthedocs.io/en/latest/#) for the official documentation.
-For new contributions, the documentation will be updated automatically. For any manual triggering, from within the docs folder, execute
+For new contributions, the documentation will be updated automatically. For any local building, from within the docs folder, execute
 ```bash
 (helios_verifier/docs)$ make clean
 (helios_verifier/docs)$ make html
