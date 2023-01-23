@@ -21,7 +21,7 @@ Adjust the command for your python installation. <br>
 If no election_uuid is passed, the verifier runs in default mode, verifying an example election. <br>
 Same holds true for the vote_hash, which is the hash of an audited ballot to perform audited ballot verification.
 
-In case of missing dependencies, pleas run from the root of the project:
+In case of missing dependencies, please run from the root of the project:
 ```
 pip install -r requirements.txt
 ```
