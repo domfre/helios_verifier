@@ -33,7 +33,7 @@ Adjust the command for your python installation. <br>
 If no election_uuid is passed, the verifier runs in default mode, verifying an example election. <br>
 Same holds true for the vote_hash, which is the hash of an audited ballot to perform audited ballot verification.
 
-In case of missing dependencies, pleas run from the root of the project:
+In case of missing dependencies, please run from the root of the project:
 ```
 pip install -r requirements.txt
 ```
@@ -41,4 +41,4 @@ pip install -r requirements.txt
 
 ## Remarks 
 
-Currently, the verifier only works for elections hosted on the helios server. This can be easily changed by adjusting the host url in DataUrls module.
+Currently, the verifier only works for elections hosted on the helios server. This can easily be changed by adjusting the host url in the DataUrls module.
